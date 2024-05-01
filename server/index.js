@@ -16,15 +16,17 @@ app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", Router);
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 const USERNAME = process.env.DB_USERNAME;
 const PASSWORD = process.env.DB_PASSWORD;
 
-Connection(USERNAME, PASSWORD);
+const URL =
+  process.env.MONGODB_URI ||
+  `mongodb+srv://${USERNAME}:${PASSWORD}@cluster0.jmz1n1f.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
-app.listen("https://flipkart-backend-six.vercel.app/" || PORT, () =>
-  console.log(`Server is running on port ${PORT}`)
-);
+Connection(URL);
+
+app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
 
 DefaultData();
