@@ -4,11 +4,6 @@ export const getProducts = async (request, response) => {
   try {
     const products = await Product.find({});
 
-    response.header(
-      "Access-Control-Allow-Origin",
-      "https://flipkart-frontend-dun.vercel.app/"
-    );
-
     response.status(200).json({ products });
   } catch (error) {
     response.status(500).json({ message: error.message });
