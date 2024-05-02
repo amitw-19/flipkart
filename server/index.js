@@ -25,7 +25,7 @@ dotenv.config();
 });*/
 
 var corsOptions = {
-  Origin: "https://flipkart-frontend-dun.vercel.app/",
+  origin: "https://flipkart-frontend-dun.vercel.app/",
   credentials: true,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   optionsSuccessStatus: 204,
