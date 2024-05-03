@@ -5,6 +5,14 @@ import {
   getProducts,
   getProductById,
 } from "../controller/product-controller.js";
+import cors from "cors";
+
+var corsOptions = {
+  origin: "https://flipkart-frontend-dun.vercel.app/",
+  credentials: true,
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  optionsSuccessStatus: 204,
+};
 
 const router = express.Router();
 
@@ -18,7 +26,7 @@ const router = express.Router();
 router.post("/signup", userSignup);
 router.post("/login", userLogin);
 
-router.get("/products", getProducts);
+router.get("/products", cors(corsOptions), getProducts);
 router.get("/product/:id", getProductById);
 
 export default router;
