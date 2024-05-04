@@ -18,15 +18,15 @@ dotenv.config();
 });*/
 
 app.use(function (req, res, next) {
-  res.setHeader(
+  res.header(
     "Access-Control-Allow-Origin",
     "https://flipkart-frontend-dun.vercel.app/"
   );
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "PUT, GET, POST, DELETE, OPTIONS"
+
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
   );
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   next();
 });
 
@@ -36,7 +36,7 @@ var corsOptions = {
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   optionsSuccessStatus: 204,
 };
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
