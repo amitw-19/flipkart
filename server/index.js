@@ -17,10 +17,10 @@ dotenv.config();
   next();
 });*/
 
-app.use(function (req, res, next) {
+/*app.use(function (req, res, next) {
   res.header(
     "Access-Control-Allow-Origin",
-    "https://flipkart-frontend-dun.vercel.app/"
+    "https://flipkart-frontend-dun.vercel.app"
   );
 
   res.header(
@@ -28,7 +28,7 @@ app.use(function (req, res, next) {
     "Origin, X-Requested-With, Content-Type, Accept"
   );
   next();
-});
+});*/
 
 var corsOptions = {
   origin: "https://flipkart-frontend-dun.vercel.app/",
