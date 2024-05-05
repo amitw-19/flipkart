@@ -29,7 +29,7 @@ dotenv.config();
   );
   next();
 });*/
-
+/*
 var corsOptions = {
   origin: (origin, callback) => {
     callback(null, { origin: true });
@@ -48,7 +48,8 @@ var corsOptions = {
 };
 
 app.options("*", cors(corsOptions));
-app.use(cors(corsOptions));
+*/
+app.use(cors());
 
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
