@@ -31,11 +31,23 @@ dotenv.config();
 });*/
 
 var corsOptions = {
-  origin: "https://flipkart-frontend-dun.vercel.app/",
+  origin: (origin, callback) => {
+    callback(null, { origin: true });
+  },
   credentials: true,
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  methods: ["GET,HEAD,PUT,PATCH,POST,DELETE"],
+  allowedHeaders: [
+    "Access-Control-Allow-Origin",
+    "Origin",
+    "X-Requested-With",
+    "Content-Type",
+    "Accept",
+    "Authorization",
+  ],
   optionsSuccessStatus: 204,
 };
+
+app.options("*", cors(corsOptions));
 app.use(cors(corsOptions));
 
 app.use(bodyParser.json({ extended: true }));
