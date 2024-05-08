@@ -23,10 +23,10 @@ const router = express.Router();
   next();
 });*/
 
-router.post("/signup", userSignup);
-router.post("/login", userLogin);
+router.post("/signup", cors(), userSignup);
+router.post("/login", cors(), userLogin);
 
-router.get("/products", getProducts);
-router.get("/product/:id", getProductById);
+router.get("/products", cors(), getProducts);
+router.get("/product/:id", cors(), getProductById);
 
 export default router;
