@@ -54,7 +54,7 @@ app.use(cors());
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use("/", cors(), Router);
+app.use("/", Router);
 
 const PORT = process.env.PORT || 8000;
 
