@@ -7,7 +7,7 @@ import * as actionType from "../constants/cartConstant";
 export const addToCart = (id, quantity) => async (dispatch) => {
   try {
     const { data } = await axios.get(
-      `https://flipkart-backend-six.vercel.app/product/product/${id}`
+      `https://flipkart-backend-six.vercel.app/product/${id}`
     );
 
     dispatch({ type: actionType.ADD_TO_CART, payload: { ...data, quantity } });
