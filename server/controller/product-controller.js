@@ -5,10 +5,6 @@ export const getProducts = async (request, response) => {
     const products = await Product.find({});
 
     response.status(200).json({ products });
-    response.header(
-      "Access-Control-Allow-Origin",
-      "https://flipkart-frontend-dun.vercel.app/"
-    );
   } catch (error) {
     response.status(500).json({ message: error.message });
   }
@@ -20,10 +16,6 @@ export const getProductById = async (request, response) => {
     const product = await Product.findOne({ id: id });
 
     response.status(200).json(product);
-    response.header(
-      "Access-Control-Allow-Origin",
-      "https://flipkart-frontend-dun.vercel.app/"
-    );
   } catch (error) {
     response.status(500).json({ message: error.message });
   }
