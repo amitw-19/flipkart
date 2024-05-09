@@ -23,7 +23,6 @@ export const getProductDetails = (id) => async (dispatch) => {
     const { data } = await axios.get(
       `https://flipkart-backend-six.vercel.app/product/${id}`
     );
-
     dispatch({ type: actionTypes.GET_PRODUCT_DETAILS_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
